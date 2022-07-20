@@ -29,21 +29,24 @@ const customers =[
 function App() {
   return (
     <div>
-{
+
+      {
   customers.map(c => {
     return(
-      <Customer 
-      key={c.id}
-      id={c.id}
-      name={c.name}
-      birthday={c.birthday}
-      gender={c.gender}
-      gob={c.gob}
-      />
+
+   <Customer 
+   key={c.id}
+   id={c.id}
+   name={c.name}
+   birthday={c.birthday}
+   gender={c.gender}
+   gob={c.gob}
+   />
+ 
+  
     )
   })
 }
-     
     
     </div>
   );
