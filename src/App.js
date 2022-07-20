@@ -1,39 +1,24 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import Customer from './components/Customers';
 
-const customers =[
-  {
-  'id':1,
-  'name':'홍길동',
-  'birthday':'980822',
-  'gender':'남자',
-  'gob':'대학생'
-},
-{
-  'id':2,
-  'name':'박효진',
-  'birthday':'980422',
-  'gender':'여자',
-  'gob':'졸업생'
-},
-{
-  'id':3,
-  'name':'김제니',
-  'birthday':'930822',
-  'gender':'여자',
-  'gob':'아이돌'
-}
 
-]
 
 function App() {
+const [userList, setUserList]=useState(null);
+
+useEffect(()=>{
+  fetch("http://localhost:5000/api/user")
+  .then((response)=> response.json())
+  .then((data)=>setUserList(data));
+},[])
+
+
+
   return (
     <div>
-
-      {
-  customers.map(c => {
+      {userList?.map(c => {
     return(
-
    <Customer 
    key={c.id}
    id={c.id}
